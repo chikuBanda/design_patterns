@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <!--add entry to enable component scanning-->
+    <context:component-scan base-package="com.chiku" />
+
+    <bean id="lion" class="com.chiku.Animal">
+        <constructor-arg >
+            <bean class="com.chiku.implementations.LoudAndScaryRoarImpl" />
+        </constructor-arg>
+        <constructor-arg>
+            <bean class="com.chiku.implementations.SmallToBigPreyHuntImpl"/>
+        </constructor-arg>
+    </bean>
+
+    <bean id="cheetah" class="com.chiku.Animal">
+        <constructor-arg>
+            <bean class="com.chiku.implementations.SmallToMediumPreyHuntImpl"/>
+        </constructor-arg>
+        <constructor-arg>
+            <bean class="com.chiku.implementations.QuietAndCuteRoarImpl"/>
+        </constructor-arg>
+    </bean>
+</beans>
